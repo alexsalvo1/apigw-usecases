@@ -1,0 +1,25 @@
+openapi: "3.0.1"
+info:
+  title: "apigw-usecases"
+  version: "1.0"
+servers:
+- url: "https://0l3s4a8xq3.execute-api.eu-west-1.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: "/Prod"
+paths:
+  /hello_redirect:
+    get: {}
+  /hello_async:
+    post:
+      responses:
+        200:
+          description: "200 response"
+          content: {}
+  /hello_dd:
+    get: {}
+  /hello_pc:
+    get: {}
+  /hello:
+    get: {}
+components: {}

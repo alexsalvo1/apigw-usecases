@@ -1,0 +1,56 @@
+openapi: "3.0.1"
+info:
+  title: "apigw-usecases"
+  version: "1.0"
+servers:
+- url: "https://0l3s4a8xq3.execute-api.eu-west-1.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: "/Prod"
+paths:
+  /hello_redirect:
+    get:
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:373692357663:function:apigw-usecases-HelloWorldFunctionRedirect-1CBK78YKUCPH7/invocations"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+  /hello_async:
+    post:
+      responses:
+        200:
+          description: "200 response"
+          content: {}
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:373692357663:function:apigw-usecases-HelloWorldFunctionAsynchronous-F72P94B5TOV5/invocations"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.X-Amz-Invocation-Type: "'Event'"
+        passthroughBehavior: "when_no_templates"
+        httpMethod: "POST"
+        contentHandling: "CONVERT_TO_TEXT"
+        type: "aws"
+  /hello_dd:
+    get:
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:373692357663:function:apigw-usecases-HelloWorldFunctionDynamoDB-137UL2D82U1TP/invocations"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+  /hello_pc:
+    get:
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:373692357663:function:apigw-usecases-HelloWorldFunctionProvisionedConcur-1QRTZJ8EM20MA:dev/invocations"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+  /hello:
+    get:
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:373692357663:function:apigw-usecases-HelloWorldFunction-16UO21IKLOI5M/invocations"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+components: {}

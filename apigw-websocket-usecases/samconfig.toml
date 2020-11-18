@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "apigw-websocket-usecases"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1lu7wdkq9bkjg"
+s3_prefix = "apigw-websocket-usecases"
+region = "eu-west-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "TableName=\"simplechat_connections\""
