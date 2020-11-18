@@ -2,9 +2,9 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "apigw-websocket-usecases"
+stack_name = "apigw-websocket"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1lu7wdkq9bkjg"
-s3_prefix = "apigw-websocket-usecases"
+s3_prefix = "apigw-websocket"
 region = "eu-west-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"

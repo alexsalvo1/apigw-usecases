@@ -1,10 +1,10 @@
 version = 0.1
-[dev]
-[dev.deploy]
-[dev.deploy.parameters]
-stack_name = "apigw-usecases"
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "apigw-restapi"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1lu7wdkq9bkjg"
-s3_prefix = "apigw-usecases"
+s3_prefix = "apigw-restapi"
 region = "eu-west-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
