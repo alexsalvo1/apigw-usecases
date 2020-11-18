@@ -1,4 +1,4 @@
-# apigw-restapi
+# apigw-httpapi
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
@@ -49,7 +49,7 @@ You can find your API Gateway Endpoint URL in the output values displayed after 
 Build your application with the `sam build --use-container` command.
 
 ```bash
-apigw-restapi$ sam build --use-container
+apigw-httpapi$ sam build --use-container
 ```
 
 The SAM CLI installs dependencies defined in `hello_world/requirements.txt`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
@@ -59,14 +59,14 @@ Test a single function by invoking it directly with a test event. An event is a 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-apigw-restapi$ sam local invoke HelloWorldFunction --event events/event.json
+apigw-httpapi$ sam local invoke HelloWorldFunction --event events/event.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
-apigw-restapi$ sam local start-api
-apigw-restapi$ curl http://localhost:3000/
+apigw-httpapi$ sam local start-api
+apigw-httpapi$ curl http://localhost:3000/
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
@@ -90,7 +90,7 @@ To simplify troubleshooting, SAM CLI has a command called `sam logs`. `sam logs`
 `NOTE`: This command works for all AWS Lambda functions; not just the ones you deploy using SAM.
 
 ```bash
-apigw-restapi$ sam logs -n HelloWorldFunction --stack-name apigw-restapi --tail
+apigw-httpapi$ sam logs -n HelloWorldFunction --stack-name apigw-httpapi --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
@@ -100,8 +100,8 @@ You can find more information and examples about filtering Lambda function logs 
 Tests are defined in the `tests` folder in this project. Use PIP to install the [pytest](https://docs.pytest.org/en/latest/) and run unit tests.
 
 ```bash
-apigw-restapi$ pip install pytest pytest-mock --user
-apigw-restapi$ python -m pytest tests/ -v
+apigw-httpapi$ pip install pytest pytest-mock --user
+apigw-httpapi$ python -m pytest tests/ -v
 ```
 
 ## Cleanup
@@ -109,7 +109,7 @@ apigw-restapi$ python -m pytest tests/ -v
 To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
 
 ```bash
-aws cloudformation delete-stack --stack-name apigw-restapi
+aws cloudformation delete-stack --stack-name apigw-httpapi
 ```
 
 ## Resources
@@ -117,4 +117,4 @@ aws cloudformation delete-stack --stack-name apigw-restapi
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
-# apigw_restapi
+# apigw_httpapi
